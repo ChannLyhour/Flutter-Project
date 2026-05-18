@@ -60,7 +60,7 @@ flutter:
   fonts:
     - family: KantumruyPro
       fonts:
-        - asset: assets/fonts/KantumruyPro-Regular.ttf
+        # - asset: assets/fonts/KantumruyPro-Regular.ttf
         - asset: assets/fonts/KantumruyPro-Bold.ttf
           weight: 700
     - family: KhmerOSBattambang

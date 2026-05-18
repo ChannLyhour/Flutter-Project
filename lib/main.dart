@@ -122,15 +122,39 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
             onPressed: _resetCounter, // ហៅ function reset
             heroTag: 'btn2',
             backgroundColor: Colors.redAccent,
-            child: const Icon(Icons.refresh, color: Colors.white),
+            child: const Icon(
+              Icons.refresh,
+              color: Colors.white,
+              shadows: [
+                Shadow(
+                  color: Colors.black45,
+                  blurRadius: 8.0,
+                  offset: Offset(2.0, 2.0),
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: 10),
           // ប៊ូតុង Reset លេខមក ០ វិញ
           FloatingActionButton(
-            onPressed: _resetCounter, // ហៅ function reset
+            onPressed: _resetCounter,
             heroTag: 'btn2',
             backgroundColor: Colors.amberAccent,
-            child: const Icon(Icons.camera_alt, color: Colors.blueAccent),
+            child: const Icon(
+              Icons.camera_alt,
+              color: Colors.white,
+              // 👇 បន្ថែមស្រមោលទៅឲ្យ Icon នៅត្រង់នេះ
+              shadows: [
+                Shadow(
+                  color: Colors.black45, // ពណ៌របស់ស្រមោល (ខ្មៅស្រាល)
+                  blurRadius: 8.0, // កម្រិតព្រិលរបស់ស្រមោល
+                  offset: Offset(
+                    2.0,
+                    2.0,
+                  ), // ទិសដៅស្រមោល (X: ទៅស្ដាំ 2, Y: ចុះក្រោម 2)
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: 10),
           // ប៊ូតុង Reset លេខមក ០ វិញ
@@ -138,7 +162,17 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
             onPressed: _resetCounter, // ហៅ function reset
             heroTag: 'btn2',
             backgroundColor: Colors.blue,
-            child: const Icon(Icons.home, color: Colors.white),
+            child: const Icon(
+              Icons.home,
+              color: Colors.white,
+              shadows: [
+                Shadow(
+                  color: Colors.black54,
+                  blurRadius: 8.0,
+                  offset: Offset(2.0, 2.0),
+                ),
+              ],
+            ),
           ),
         ],
       ),

@@ -4,6 +4,8 @@ void main() {
   runApp(const FlutterLearningHubApp());
 }
 
+// ដាក់នៅផ្នែកខាងលើក្នុង Class របស់អ្នក (ខាងលើ build method)
+
 class FlutterLearningHubApp extends StatelessWidget {
   const FlutterLearningHubApp({super.key});
 
@@ -34,6 +36,11 @@ class CounterHomeScreen extends StatefulWidget {
 }
 
 class _CounterHomeScreenState extends State<CounterHomeScreen> {
+  // ដាក់នៅផ្នែកខាងលើក្នុង Class របស់អ្នក (ខាងលើ build method)
+  static const List<Shadow> _iconShadow = [
+    Shadow(color: Colors.black87, blurRadius: 9.0, offset: Offset(4.0, 2.0)),
+  ];
+
   int _counter = 0;
 
   void _incrementCounter() {
@@ -114,7 +121,11 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
             onPressed: _incrementCounter, // ហៅ function បូកលេខ
             heroTag: 'btn1',
             backgroundColor: const Color(0xFF10B981),
-            child: const Icon(Icons.add, color: Colors.white),
+            child: const Icon(
+              Icons.add,
+              color: Colors.white,
+              shadows: _iconShadow,
+            ),
           ),
           const SizedBox(height: 10),
           // ប៊ូតុង Reset លេខមក ០ វិញ
@@ -125,13 +136,7 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
             child: const Icon(
               Icons.refresh,
               color: Colors.white,
-              shadows: [
-                Shadow(
-                  color: Colors.black45,
-                  blurRadius: 8.0,
-                  offset: Offset(2.0, 2.0),
-                ),
-              ],
+              shadows: _iconShadow,
             ),
           ),
           const SizedBox(height: 10),
@@ -143,17 +148,7 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
             child: const Icon(
               Icons.camera_alt,
               color: Colors.white,
-              // 👇 បន្ថែមស្រមោលទៅឲ្យ Icon នៅត្រង់នេះ
-              shadows: [
-                Shadow(
-                  color: Colors.black45, // ពណ៌របស់ស្រមោល (ខ្មៅស្រាល)
-                  blurRadius: 8.0, // កម្រិតព្រិលរបស់ស្រមោល
-                  offset: Offset(
-                    2.0,
-                    2.0,
-                  ), // ទិសដៅស្រមោល (X: ទៅស្ដាំ 2, Y: ចុះក្រោម 2)
-                ),
-              ],
+              shadows: _iconShadow,
             ),
           ),
           const SizedBox(height: 10),
@@ -165,13 +160,7 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
             child: const Icon(
               Icons.home,
               color: Colors.white,
-              shadows: [
-                Shadow(
-                  color: Colors.black54,
-                  blurRadius: 8.0,
-                  offset: Offset(2.0, 2.0),
-                ),
-              ],
+              shadows: _iconShadow,
             ),
           ),
         ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/app_navigation_drawer.dart'; // 🟢 Relative import path
+import 'profile_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -18,6 +19,7 @@ class SettingsScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
+            // Change the onTap inside your lib/screens/settings_screen.dart:
             ListTile(
               leading: const Icon(Icons.person, color: Colors.blue),
               title: const Text(
@@ -25,8 +27,17 @@ class SettingsScreen extends StatelessWidget {
                 style: TextStyle(color: Colors.black),
               ),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-              onTap: () {},
+              onTap: () {
+                // 🟢 Navigates straight to your fresh Profile layout
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfileScreen(),
+                  ),
+                );
+              },
             ),
+            
             const Divider(),
             ListTile(
               leading: const Icon(Icons.dark_mode, color: Colors.blue),

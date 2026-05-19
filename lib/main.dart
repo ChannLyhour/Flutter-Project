@@ -4,8 +4,6 @@ void main() {
   runApp(const FlutterLearningHubApp());
 }
 
-// ដាក់នៅផ្នែកខាងលើក្នុង Class របស់អ្នក (ខាងលើ build method)
-
 class FlutterLearningHubApp extends StatelessWidget {
   const FlutterLearningHubApp({super.key});
 
@@ -36,7 +34,6 @@ class CounterHomeScreen extends StatefulWidget {
 }
 
 class _CounterHomeScreenState extends State<CounterHomeScreen> {
-  // ដាក់នៅផ្នែកខាងលើក្នុង Class របស់អ្នក (ខាងលើ build method)
   static const List<Shadow> _iconShadow = [
     Shadow(color: Colors.black87, blurRadius: 9.0, offset: Offset(4.0, 2.0)),
   ];
@@ -59,7 +56,6 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        //  1 . Leading ប៊ូតុងខាងឆ្វេង
         elevation: 10,
         leading: IconButton(
           icon: const Icon(Icons.home),
@@ -67,11 +63,9 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
             print('Menu Click');
           },
         ),
-
         title: const Text('Welcome Hour Dev !'),
         centerTitle: true,
         backgroundColor: Colors.blue,
-
         actions: [
           IconButton(
             onPressed: () => print('Search Click'),
@@ -83,11 +77,12 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
           ),
         ],
       ),
-      body: const Center(
+      // 🟢 ដក const ចេញពី Center ដើម្បីបង្ហាញតម្លៃលេខប្រែប្រួលបាន
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'សួស្តី Hour Dev Kh !',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -97,8 +92,8 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
                 fontFamily: 'KantumruyPro',
               ),
             ),
-            SizedBox(height: 10),
-            Text(
+            const SizedBox(height: 10),
+            const Text(
               'ចំនួនដែលអ្នកបានចុច៖',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -108,17 +103,27 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
                 fontFamily: 'KhmerOSBattambang',
               ),
             ),
+            const SizedBox(height: 10),
+            // 🟢 បន្ថែម Text នេះដើម្បីបង្ហាញលេខ Counter
+            Text(
+              '$_counter',
+              style: const TextStyle(
+                fontSize: 60,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue,
+              ),
+            ),
           ],
         ),
       ),
 
-      // 🟢 បន្ថែមប៊ូតុងចុច (Floating Action Buttons) នៅខាងក្រោមស្តាំ
+      // 🟢 បានកែសម្រួល heroTag មិនឱ្យជាន់គ្នា (btn1, btn2, btn3, btn4)
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           // ប៊ូតុង បូកលេខ
           FloatingActionButton(
-            onPressed: _incrementCounter, // ហៅ function បូកលេខ
+            onPressed: _incrementCounter,
             heroTag: 'btn1',
             backgroundColor: const Color(0xFF10B981),
             child: const Icon(
@@ -130,7 +135,7 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
           const SizedBox(height: 10),
           // ប៊ូតុង Reset លេខមក ០ វិញ
           FloatingActionButton(
-            onPressed: _resetCounter, // ហៅ function reset
+            onPressed: _resetCounter,
             heroTag: 'btn2',
             backgroundColor: Colors.redAccent,
             child: const Icon(
@@ -140,10 +145,10 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
             ),
           ),
           const SizedBox(height: 10),
-          // ប៊ូតុង Reset លេខមក ០ វិញ
+          // ប៊ូតុង កាមេរ៉ា
           FloatingActionButton(
-            onPressed: _resetCounter,
-            heroTag: 'btn2',
+            onPressed: () => print('Camera Clicked'),
+            heroTag: 'btn3', // កែពី btn2 មក btn3
             backgroundColor: Colors.amberAccent,
             child: const Icon(
               Icons.camera_alt,
@@ -151,11 +156,11 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
               shadows: _iconShadow,
             ),
           ),
-          const SizedBox(height: 10),
-          // ប៊ូតុង Reset លេខមក ០ វិញ
+          const SizedBox(height: 5),
+          // ប៊ូតុង Home ខាងក្រោម
           FloatingActionButton(
-            onPressed: _resetCounter, // ហៅ function reset
-            heroTag: 'btn2',
+            onPressed: () => print('Home Clicked'),
+            heroTag: 'btn4', // កែពី btn2 មក btn4
             backgroundColor: Colors.blue,
             child: const Icon(
               Icons.home,
